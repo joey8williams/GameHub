@@ -1,0 +1,12 @@
+@import '../../styles/tachyons-vars.scss';
+
+body, p{
+    margin:0px;
+}
+
+.wrapper{
+
+    height:100vh;
+    background-color:$moon-gray;
+
+}
