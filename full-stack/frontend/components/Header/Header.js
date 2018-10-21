@@ -1,19 +1,17 @@
 import Nav from '../Nav/Nav';
 import styles from './Header.scss';
 import NavOrb from '../NavOrb/NavOrb';
+import MenuRibbon from '../MenuRibbon/MenuRibbon';
 
-const Header = () => (
-    <div className={styles.wrapper}>
-        <div className={styles.gutter}>
+const Header = (props) => (
+    <div className={props.className}>
+        <div className={styles.wrapper}>
+            <div className={styles.gutter}></div>
 
+            <NavOrb className={styles.orbPosition} />
+
+            <MenuRibbon className={styles.menuRibbon} />
         </div>
-        <div className={styles.menuRibbon}>
-            <div className={styles.logo}>
-                <a href="#">GameHub</a>
-                <Nav />
-            </div>
-        </div>
-        <NavOrb className={styles.orbPosition} />
     </div>
 )
 export default Header;

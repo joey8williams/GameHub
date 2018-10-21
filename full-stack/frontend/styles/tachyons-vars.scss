@@ -6,6 +6,10 @@
 @custom-media $breakpoint-medium screen and (min-width: 30em) and (max-width: 60em);
 @custom-media $breakpoint-large screen and (min-width: 60em);
 
+$z-level-0: 0;
+$z-level-1: 1;
+$z-level-2: 2;
+
 
 $sans-serif: -apple-system, BlinkMacSystemFont, 'avenir next', avenir, helvetica, 'helvetica neue', ubuntu, roboto, noto, 'segoe ui', arial, sans-serif;
 $serif: georgia, serif;
