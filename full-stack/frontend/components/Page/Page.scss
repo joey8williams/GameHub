@@ -10,19 +10,33 @@ body, p{
     display:grid;
     grid-template-columns: repeat(10,1fr);
     grid-template-rows: repeat(20,1fr);
-    overflow: scroll;
+    overflow: hidden;
 }
 
 .userData{
     grid-column: 1/5;
     grid-row:1/4;
     z-index: $z-level-1;
+    position: relative;
+    left:0px;
+    top:0px;
+    transition: left background;
+    transition-duration: 500ms;
+    transition-timing-function: ease-in-out;
+
+    background: rgba(112,81,246,1);
+    &[data-showing="false"]{
+        left: -35%;
+        background: rgba(112,81,246,0.3);
+
+    }
 }
 
 .mainContent{
     grid-column: 1/11;
     grid-row:1/18;
     z-index: $z-level-0;
+    overflow:auto;
 }
 
 .header{

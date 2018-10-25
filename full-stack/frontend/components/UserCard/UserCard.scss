@@ -1,7 +1,22 @@
 @import '../../styles/tachyons-vars.scss';
 
 .wrapper{
-  background-color:$light-blue;
+  //background-color:$light-blue;
   height:100%;
+  display:grid;
+  grid-template-columns: repeat(12,1fr);
+  grid-template-rows: repeat(6,1fr);
+}
 
+.bodyContent{
+  grid-row:1/7;
+  grid-column:1/9;
+}
+
+.rightContent{
+  grid-row:1/7;
+  grid-column:12/13;
+}
+.dontFade{
+  background: rgba(112,81,246,1);
 }

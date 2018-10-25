@@ -4,11 +4,17 @@ import styles from './Page.scss';
 import UserCard from '../UserCard/UserCard';
 
 export default class Page extends Component {
+  constructor(){
+    super();
+    this.state = {
+      showing:true
+    }
+  }
   render() {
     return (
       <div className={styles.wrapper}>
 
-        <UserCard className={styles.userData}/>
+        <UserCard onClick={this.toggleUserCard} className={styles.userData} showing={this.state.showing} />
 
         <div className={styles.mainContent}>
           {this.props.children}
@@ -16,5 +22,13 @@ export default class Page extends Component {
         <Header className={styles.header} />
       </div>
     )
+  }
+
+  toggleUserCard = () => {
+    this.setState(prevState => (
+      this.state.showing = !prevState.showing
+    ))
+    console.log(this.state.showing);
+
   }
 }
