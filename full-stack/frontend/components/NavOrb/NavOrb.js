@@ -5,7 +5,6 @@ import * as THREE from 'three';
 //TODO: Get this thing working
 export default class NavOrb extends Component {
   componentDidMount(){
-    console.log(this.mount);
       const width = this.mount.clientWidth
       const height = this.mount.clientHeight
       //ADD SCENE
@@ -24,7 +23,7 @@ export default class NavOrb extends Component {
       this.renderer.setSize(width, height)
       this.mount.appendChild(this.renderer.domElement)
       //ADD CUBE
-      const geometry = new THREE.BoxGeometry(1, 1, 1)
+      const geometry = new THREE.SphereGeometry(2.2)
       const material = new THREE.MeshBasicMaterial({ color: '#433F81'     })
       this.cube = new THREE.Mesh(geometry, material)
       this.scene.add(this.cube)
