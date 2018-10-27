@@ -1,11 +1,11 @@
 @import '../../styles/tachyons-vars.scss';
 
 .wrapper{
-  //background-color:$light-blue;
   height:100%;
   display:grid;
   grid-template-columns: repeat(12,1fr);
   grid-template-rows: repeat(6,1fr);
+  box-shadow: $box-shadow-3
 }
 
 .bodyContent{
@@ -18,5 +18,16 @@
   grid-column:12/13;
 }
 .dontFade{
+  height:100%;
   background: rgba(112,81,246,1);
+
+}
+.toggleIcon{
+  transition: transform 500ms ease-in-out;
+  font-size: 1.5rem;
+
+}
+.spin{
+  transform: rotate(-180deg);
+  transition: transform 500ms ease-in-out;
 }

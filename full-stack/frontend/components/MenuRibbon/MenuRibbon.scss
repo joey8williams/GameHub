@@ -5,6 +5,7 @@
   display:grid;
   grid-template-rows: repeat(5,1fr);
   grid-template-columns: repeat(10,1fr);
+  box-shadow: $box-shadow-1
 }
 .logo{
     background-color:$green;

@@ -20,14 +20,18 @@ body, p{
     position: relative;
     left:0px;
     top:0px;
-    transition: left background;
+    transition: left background height;
     transition-duration: 500ms;
     transition-timing-function: ease-in-out;
+    height:100%;
 
     background: rgba(112,81,246,1);
     &[data-showing="false"]{
         left: -35%;
         background: rgba(112,81,246,0.3);
+        height:10%;
+        min-height:50px;
+        overflow: hidden;
 
     }
 }

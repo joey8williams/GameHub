@@ -5,7 +5,7 @@ const MenuRibbon = props => (
   <div className={props.className}>
     <div className={styles.wrapper}>
         <div className={styles.logo}>
-            <h1 className={styles.brand}>PhuqUs</h1>
+            <h1 className={styles.brand}>P</h1>
         </div>
         <Nav className={styles.nav}/>
     </div>
