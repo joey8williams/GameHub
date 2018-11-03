@@ -3,3 +3,13 @@ type User {
   name: String!
   email: String!
 }
+
+type Story{
+  id: ID! @unique
+  title: String!
+  subHeader: String
+  body: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  #author: User!
+}
