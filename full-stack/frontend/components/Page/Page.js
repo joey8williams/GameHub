@@ -40,7 +40,7 @@ export default class Page extends Component {
   constructor(){
     super();
     this.state = {
-      showing:true
+      showing:false
     }
   }
   render() {
