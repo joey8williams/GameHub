@@ -1,12 +1,15 @@
 import React, { Component } from 'react'
 import {Mutation} from 'graphql-tools';
+import Form from '../styles/Form';
 
 export default class AddStory extends Component {
   render() {
     return (
-      <div>
+      <Form>
+
+      <p>Hello World</p>
         
-      </div>
+      </Form>
     )
   }
 }
