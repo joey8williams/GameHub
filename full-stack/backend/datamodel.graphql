@@ -1,9 +1,22 @@
+enum Permission{
+  ADMIN
+  USER
+  PERMISSIONUPDATE
+
+}
+
 type User {
   id: ID! @unique
   name: String!
   email: String! @unique
+  password: String!
+  resetToken: String
+  resetTokenExpiry: Float
+  permissions: [Permission]
   games: [Game]
 }
+
+
 
 type Story{
   id: ID! @unique
