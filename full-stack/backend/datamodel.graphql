@@ -2,6 +2,7 @@ type User {
   id: ID! @unique
   name: String!
   email: String!
+  games: [Game]
 }
 
 type Story{
@@ -12,4 +13,24 @@ type Story{
   createdAt: DateTime!
   updatedAt: DateTime!
   #author: User!
+}
+
+type Game{
+  id: ID! @unique
+  title: String!
+  platform: [Platform]!
+  username: String!
+}
+
+enum Platform{
+  PS4
+  XBOX
+  NINTENDO
+  PC
+}
+
+type Room{
+  #Todo: Figure out how to work with external APIs
+  #channel: String!
+  
 }
