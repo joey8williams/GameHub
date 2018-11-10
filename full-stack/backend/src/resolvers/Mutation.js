@@ -26,7 +26,7 @@ const Mutations = {
     },
     info
     );
-    
+
     //create JWT token
     const token = jwt.sign({userId: user.id},process.env.APP_SECRET);
     //set jwt as cookie on response
@@ -41,14 +41,15 @@ const Mutations = {
   async signout(parent,args,ctx,info){
     ctx.response.clearCookie('token');
     return {message: "Goodbye"}
+  },
+  async removeUser(parent,args,ctx,info){
+    const result = await ctx.db.mutation.deleteUser({
+      where:{
+        id: args.id.toString()
+      }
+    })
+    return {message: result}
   }
-//  createDog(parent, args, context, info){
-//    global.dogs = global.dogs || [];
-//    //create a dog
-//    const newDog = {name:args.name};
-//    global.dogs.push(newDog);
-//    return newDog;
-//  }
 
 };
 

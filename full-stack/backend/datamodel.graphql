@@ -13,7 +13,7 @@ type User {
   resetToken: String
   resetTokenExpiry: Float
   permissions: [Permission]
-  games: [Game]
+  games: [Game!]!
 }
 
 
@@ -33,6 +33,7 @@ type Game{
   title: String!
   platform: [Platform]!
   username: String!
+  user:User!
 }
 
 enum Platform{
@@ -42,8 +43,8 @@ enum Platform{
   PC
 }
 
-type Room{
-  #Todo: Figure out how to work with external APIs
-  #channel: String!
-  
-}
+#type Room{
+#  #Todo: Figure out how to work with external APIs
+#  #channel: String!
+#
+#}

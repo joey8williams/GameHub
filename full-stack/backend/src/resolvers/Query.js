@@ -3,6 +3,7 @@ const {forwardTo} = require('prisma-binding');
 
 const Query = {
   stories: forwardTo('db'),
+  users: forwardTo('db')
 //  async stories(parent,args,ctx,info){
 //    const stories = await ctx.db.query.stories();
 //
