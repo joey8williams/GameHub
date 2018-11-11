@@ -1,6 +1,6 @@
 import Nav from '../Nav/Nav';
 import styles from './Header.scss';
-import NavOrb from '../NavOrb/NavOrb';
+import NavOrb from '../Nav/NavOrb/NavOrb';
 import MenuRibbon from '../MenuRibbon/MenuRibbon';
 import Router from 'next/router';
 import NProgress from 'nprogress';

@@ -14,8 +14,8 @@ body, p{
 }
 
 .userData{
-    grid-column: 1/5;
-    grid-row:1/4;
+    grid-column: 1/4;
+    grid-row:1/5;
     z-index: $z-level-1;
     position: relative;
     left:0px;
@@ -27,17 +27,19 @@ body, p{
 
     background: rgba(112,81,246,1);
     &[data-showing="false"]{
-        left: -35%;
+        grid-column:1;
         background: rgba(112,81,246,0.3);
-        height:10%;
+        grid-row:1;
         min-height:50px;
         overflow: hidden;
+        word-wrap: none;
+        white-space: nowrap;
 
     }
 }
 
 .mainContent{
-    grid-column: 1/11;
+    grid-column: 4/11;
     grid-row:1/18;
     z-index: $z-level-0;
     overflow:auto;

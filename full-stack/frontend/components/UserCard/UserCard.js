@@ -1,14 +1,25 @@
 import React, { Component } from 'react'
 import styles from './UserCard.scss';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import DisplayCard from './UserDisplay/DisplayCard';
+import LoginCard from './UserLogin/LoginCard';
 
 export default class UserCard extends Component {
+  constructor(){
+    super();
+    this.state = {
+      isLoggedIn: true
+    }
+  }
   render() {
     return (
       <div className={this.props.className} data-showing={this.props.showing}>
         <div className={styles.wrapper}>
         <div className={styles.bodyContent}>
-          <p>USER CARD. ITS GONNA HAVE ALL YA LOGIN STUFF. ITS GONNA LOOK LIKE A WOW FRAME</p>
+        {this.state.isLoggedIn
+          ? <DisplayCard />
+          : <LoginCard />
+        }
         </div>
         <div className={styles.rightContent}>
           <button className={styles.dontFade} onClick={this.props.onClick}>
