@@ -22,7 +22,7 @@ export default class SignUp extends Component {
     email: ''
   }
   saveToState = (e) => {
-    this.setState({ [e.target.name]:[e.target.value]})
+    this.setState({ [e.target.name]:e.target.value})
   }
   render() {
     return (
@@ -32,7 +32,7 @@ export default class SignUp extends Component {
       return (<Form method='post' onSubmit={async e => {
         e.preventDefault();
         await signup();
-        this.setState({[e.target.name]:e.target.value})
+        this.setState({name:'', email:'',password:''})
       }}>
       <fieldset disabled={loading} aria-busy={loading}>
         <h2>Sign up for an account</h2>
