@@ -1,6 +1,13 @@
 import Link from 'next/link';
+import User from '../User/User';
 const Nav = (props) => (
     <div className={props.className}>
+        <User>
+        {({data: {me}}) => {
+            if(me) return <p>me.name</p>
+            return null;
+        }}
+        </User>
         <Link href='/'>
         <a>Home</a>
         </Link>
