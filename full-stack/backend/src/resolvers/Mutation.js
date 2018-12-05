@@ -15,7 +15,7 @@ const Mutations = {
   async signup(parent,args,ctx,info){
     args.email = args.email.toLowerCase();
     //hash password
-    const password = await bcrypt.hash(args.password, 10);
+    const password = await hashPassword(args.password);
     //create user in db
     const user = await ctx.db.mutation.createUser({
       data: {
@@ -36,7 +36,7 @@ const Mutations = {
   },
   async signin(parent,args,ctx,info){
     args.email = args.email.toLowerCase();
-    const password = await bcrypt.hash(args.password,10);
+    const password = await hashPassword(args.password); 
 
     const user = ctx.db.query.user({
       where:{
@@ -81,6 +81,10 @@ function createJwt(ctx,user){
     });
 
     return token;
+}
+
+async function hashPassword(password){
+  return await bcrypt.hash(password,10);
 }
 
 module.exports = Mutations;
