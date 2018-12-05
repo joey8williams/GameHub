@@ -44,9 +44,11 @@ const Mutations = {
       }
     },info)
 
-    if(user == null) return {message: "Failed to login."};
+    //Email not found
+    if(user == null) return null;
 
-    if(user.password != password) return {message: "Failed to login."};
+    //Password incorrect
+    if(user.password != password) return null;
 
     //At this point, the email matches a users email, and the password is valid.
     createJwt(ctx,user);
