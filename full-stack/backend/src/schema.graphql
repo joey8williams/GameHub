@@ -6,6 +6,7 @@ type SuccessMessage{
 type Mutation{
     createStory(title: String, subHeader: String, body: String) : Story!
     signup(email:String!, password:String!, name:String!): User!
+    signin(email:String, password:String!): User!
     signout: SuccessMessage
     removeUser(id:ID!) : SuccessMessage
 }

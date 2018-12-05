@@ -27,16 +27,32 @@ const Mutations = {
     info
     );
 
-    //create JWT token
-    const token = jwt.sign({userId: user.id},process.env.APP_SECRET);
-    //set jwt as cookie on response
-    ctx.response.cookie('token',token,{
-      httpOnly: true,
-      maxAge: 1000 * 60 * 60 * 24 * 365 //1 year cookie
-    });
+    createJwt(ctx,user);
+
+
     //return the user
     return user;
 
+  },
+  async signin(parent,args,ctx,info){
+    args.email = args.email.toLowerCase();
+    const password = await bcrypt.hash(args.password,10);
+
+    const user = ctx.db.query.user({
+      where:{
+        email:args.email.toString()
+      }
+    },info)
+
+    if(user == null) return {message: "Failed to login."};
+
+    if(user.password != password) return {message: "Failed to login."};
+
+    //At this point, the email matches a users email, and the password is valid.
+    createJwt(ctx,user);
+
+    //return the user
+    return user;
   },
   async signout(parent,args,ctx,info){
     ctx.response.clearCookie('token');
@@ -52,5 +68,17 @@ const Mutations = {
   }
 
 };
+
+function createJwt(ctx,user){
+    //create JWT token
+    const token = jwt.sign({userId: user.id},process.env.APP_SECRET);
+    //set jwt as cookie on response
+    ctx.response.cookie('token',token,{
+      httpOnly: true,
+      maxAge: 1000 * 60 * 60 * 24 * 365 //1 year cookie
+    });
+
+    return token;
+}
 
 module.exports = Mutations;
